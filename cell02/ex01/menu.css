@@ -1,0 +1,78 @@
+body {
+  font-family: 'Kanit', 'Segoe UI', Arial, sans-serif;
+  background: #fffbe7;
+  margin: 0;
+  padding: 60px 0;
+}
+
+.savory-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  background: #fff8d6;
+  display: flex;
+  justify-content: center;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px #e0c97f55;
+  border: 3px solid #f5c16c;
+  overflow: hidden;
+  max-width: 900px;
+}
+
+.savory-menu > ul > li {
+  position: relative;
+}
+
+.savory-menu a {
+  display: block;
+  color: #b86b00;
+  text-decoration: none;
+  padding: 22px 44px;
+  font-size: 1.3em;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+  border-radius: 0;
+  letter-spacing: 1px;
+}
+
+.savory-menu > ul > li:hover > a,
+.savory-menu > ul > li:focus-within > a {
+  background: #ffe6a7;
+  color: #e07a00;
+}
+
+.savory-menu a span {
+  font-size: 0.9em;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: #fff8d6;
+  min-width: 200px;
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 8px 24px #e0c97f55;
+  border: 2px solid #f5c16c;
+  z-index: 10;
+}
+
+.dropdown li a {
+  color: #b86b00;
+  background: #fff8d6;
+  padding: 16px 28px;
+  font-size: 1em;
+  font-weight: normal;
+  border-radius: 0;
+}
+
+.dropdown li a:hover {
+  background: #ffe6a7;
+  color: #e07a00;
+}
+
+.savory-menu > ul > li:hover .dropdown,
+.savory-menu > ul > li:focus-within .dropdown {
+  display: block;
+}
