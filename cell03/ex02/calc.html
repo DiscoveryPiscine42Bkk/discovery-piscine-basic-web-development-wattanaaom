@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Basic Calculator</title>
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+    .calculator {
+      background: #fff;
+      padding: 32px 28px;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px #0002;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    input[type="text"] {
+      width: 60px;
+      padding: 6px;
+      font-size: 1em;
+      border-radius: 6px;
+      border: 1px solid #bbb;
+      text-align: center;
+    }
+    select {
+      font-size: 1em;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid #bbb;
+    }
+    input[type="submit"] {
+      padding: 8px 18px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: none;
+      background: #1565c0;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    input[type="submit"]:hover {
+      background: #4fc3f7;
+      color: #1565c0;
+    }
+  </style>
+</head>
+<body>
+  <form class="calculator" onsubmit="return calculate(event)">
+    <input type="text" id="left" autocomplete="off" />
+    <select id="operator">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+      <option value="%">%</option>
+    </select>
+    <input type="text" id="right" autocomplete="off" />
+    <input type="submit" value="Try me!" />
+  </form>
+  <script>
+    function isPositiveInteger(value) {
+      return /^\d+$/.test(value) && Number(value) >= 0;
+    }
+
+    function calculate(event) {
+      event.preventDefault();
+      const left = document.getElementById('left').value.trim();
+      const right = document.getElementById('right').value.trim();
+      const op = document.getElementById('operator').value;
+
+      if (!isPositiveInteger(left) || !isPositiveInteger(right)) {
+        alert('Error :(');
+        return false;
+      }
+
+      const a = Number(left);
+      const b = Number(right);
+
+      if ((op === '/' || op === '%') && b === 0) {
+        alert("It's over 9000!");
+        console.log("It's over 9000!");
+        return false;
+      }
+
+      let result;
+      switch (op) {
+        case '+': result = a + b; break;
+        case '-': result = a - b; break;
+        case '*': result = a * b; break;
+        case '/': result = a / b; break;
+        case '%': result = a % b; break;
+      }
+      alert(result);
+      console.log(result);
+      return false;
+    }
+
+    setInterval(() => {
+      alert('Please, use me...');
+    }, 30000);
+  </script>
+</body>
+</html>
