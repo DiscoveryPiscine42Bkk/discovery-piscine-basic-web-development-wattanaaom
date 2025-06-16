@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Basics</title>
+  <style>
+    body {
+      background-color: pink;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .main-title {
+      color: white;
+      text-align: center;
+      font-size: 3em;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    .shop-row {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 20px;
+    }
+    .shop {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .shop img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      background: #fff;
+    }
+    .shop a {
+      margin-top: 10px;
+      color: #333;
+      text-decoration: underline;
+      font-size: 1.1em;
+    }
+    hr {
+      margin: 40px 0 20px 0;
+      border: none;
+      border-top: 2px solid #fff;
+    }
+    .footer {
+      text-align: right;
+      font-family: monospace;
+      font-style: italic;
+      color: #333;
+      margin-right: 30px;
+      margin-bottom: 20px;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-title">
+    Welcome to ShopZone! &#9733;
+  </div>
+  <div class="shop-row">
+    <div class="shop">
+      <img src="https://www.blog.thebrandshopbw.com/wp-content/uploads/2022/01/Amazon-Logo-1.jpg" alt="Online Shop 1">
+      <a href="https://www.amazon.com" target="_blank">Visit Amazon</a>
+    </div>
+    <div class="shop">
+      <img src="https://images.prismic.io/ebayevo/Zm_StJm069VX1ywC_logo_I6728-54758-3626-50811.png?auto=format,compress" alt="Online Shop 2">
+      <a href="https://www.ebay.com" target="_blank">Visit eBay</a>
+    </div>
+  </div>
+  <hr>
+  <div class="footer">
+    &copy; wil2021
+  </div>
+</body>
+</html>
