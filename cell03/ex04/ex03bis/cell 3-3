@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Task Manager</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    body {
+      background: #f5f5f5;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 60px;
+    }
+    #container {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 24px #0002;
+      padding: 32px 28px 24px 28px;
+      min-width: 320px;
+    }
+    #new-btn {
+      background: #1565c0;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 28px;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 18px;
+      transition: background 0.2s;
+    }
+    #new-btn:hover {
+      background: #4fc3f7;
+      color: #1565c0;
+    }
+    #ft_list {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 10px;
+      min-height: 60px;
+    }
+    .todo {
+      background: #e3f2fd;
+      border-radius: 8px;
+      padding: 12px 18px;
+      font-size: 1.1em;
+      color: #1565c0;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #1565c033;
+      transition: background 0.2s, color 0.2s;
+      word-break: break-all;
+    }
+    .todo:hover {
+      background: #1565c0;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <button id="new-btn">New</button>
+    <div id="ft_list"></div>
+  </div>
+  <script>
+    // Cookie helpers
+    function setCookie(name, value, days) {
+      let expires = "";
+      if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
+    }
+    function getCookie(name) {
+      const nameEQ = name + "=";
+      const ca = document.cookie.split(';');
+      for(let i=0;i < ca.length;i++) {
+        let c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return decodeURIComponent(c.substring(nameEQ.length,c.length));
+      }
+      return null;
+    }
+
+    function saveTodos() {
+      const todos = [];
+      $('#ft_list .todo').each(function() {
+        todos.push($(this).text());
+      });
+      setCookie('todos', JSON.stringify(todos), 365);
+    }
+
+    function addTodo(text, save = true) {
+      if (!text) return;
+      const $div = $('<div class="todo"></div>').text(text);
+      $div.on('click', function() {
+        if (confirm('Do you want to remove this TO DO?')) {
+          $div.remove();
+          saveTodos();
+        }
+      });
+      $('#ft_list').append($div);
+      if (save) saveTodos();
+    }
+
+    function loadTodos() {
+      const data = getCookie('todos');
+      if (data) {
+        try {
+          const todos = JSON.parse(data);
+          $.each(todos, function(_, text) {
+            addTodo(text, false);
+          });
+        } catch {}
+      }
+    }
+
+    $(function() {
+      $('#new-btn').on('click', function() {
+        const text = prompt('Enter a new TO DO:');
+        if (text && text.trim() !== '') {
+          addTodo(text.trim());
+        }
+      });
+      loadTodos();
+    });
+  </script>

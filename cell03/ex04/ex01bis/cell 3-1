@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Balloon</title>
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f5f5;
+    }
+    #balloon {
+      width: 200px;
+      height: 200px;
+      background: red;
+      border-radius: 50%;
+      transition: width 0.2s, height 0.2s, background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      font-size: 2em;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <div id="balloon"></div>
+  <script>
+    const colors = ['red', 'green', 'blue'];
+    let colorIndex = 0;
+    let size = 200;
+
+    function updateBalloon() {
+      $('#balloon').css({
+        width: size + 'px',
+        height: size + 'px',
+        background: colors[colorIndex]
+      });
+    }
+
+    $('#balloon').on('click', function() {
+      size += 10;
+      colorIndex = (colorIndex + 1) % colors.length;
+      if (size > 420) {
+        size = 200;
+        colorIndex = 0;
+        $('#balloon').text('💥');
+        setTimeout(function() {
+          $('#balloon').text('');
+          updateBalloon();
+        }, 600);
+      } else {
+        updateBalloon();
+      }
+    });
+
+    $('#balloon').on('mouseleave', function() {
+      size = Math.max(200, size - 5);
+      colorIndex = (colorIndex - 1 + colors.length) % colors.length;
+      updateBalloon();
+    });
+
+    updateBalloon();
+  </script>
+</body>
+</html>
