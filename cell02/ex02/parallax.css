@@ -1,0 +1,79 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  scroll-behavior: smooth;
+  background: linear-gradient(180deg, #e0f7fa 0%, #fffde7 100%);
+}
+
+.parallax, .parallax2 {
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.parallax-message, .parallax2-message {
+  background: rgba(255,255,255,0.85);
+  color: #1565c0;
+  padding: 36px 54px;
+  border-radius: 24px;
+  font-size: 2.2em;
+  text-align: center;
+  box-shadow: 0 8px 32px #1565c055;
+  border: 2px solid #81d4fa;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.parallax-message {
+  background: rgba(21,101,192,0.75);
+  color: #fffde7;
+  border: 2px solid #fffde7;
+}
+
+.parallax2-message {
+  background: rgba(255,255,255,0.92);
+  color: #1565c0;
+  border: 2px solid #1565c0;
+}
+
+.black-block {
+  background: linear-gradient(90deg, #263238 0%, #37474f 100%);
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.black-block-message {
+  color: #ffe082;
+  font-size: 1.7em;
+  text-align: center;
+  padding: 48px 24px;
+  letter-spacing: 1px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 500;
+  border-radius: 16px;
+  background: rgba(38,50,56,0.7);
+  box-shadow: 0 4px 24px #0006;
+  border: 2px solid #ffe082;
+}
+
+@media (max-width: 700px) {
+  .parallax-message, .parallax2-message {
+    font-size: 1.1em;
+    padding: 16px 8px;
+    border-radius: 12px;
+  }
+  .black-block-message {
+    font-size: 1em;
+    padding: 18px 6px;
+    border-radius: 8px;
+  }
+}
