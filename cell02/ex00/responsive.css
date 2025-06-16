@@ -1,0 +1,110 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+}
+
+.table-wrapper {
+  background: rgba(255,255,255,0.25);
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+  border-radius: 32px;
+  padding: 32px 24px;
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255,255,255,0.18);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  width: 80vw;
+  max-width: 700px;
+  height: 40vh;
+  max-height: 260px;
+  border-collapse: separate;
+  border-spacing: 24px;
+  background: transparent;
+}
+
+td {
+  width: 35vw;
+  height: 18vh;
+  min-width: 120px;
+  min-height: 80px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 2.5vw;
+  font-family: inherit;
+  border-radius: 24px;
+  border: none;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.10);
+  transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+td:hover {
+  transform: scale(1.07) rotate(-2deg);
+  box-shadow: 0 12px 36px 0 rgba(31,38,135,0.22);
+  z-index: 2;
+}
+
+.box1 {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  color: #222;
+  border: 2.5px solid #14fff3;
+}
+
+.box2 {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  color: #fff;
+  border: 2.5px solid #f647ff;
+}
+
+td .emoji {
+  font-size: 2.2em;
+  display: block;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.10));
+}
+
+td .desc {
+  font-size: 1.1em;
+  opacity: 0.85;
+  margin-top: 4px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 600px) {
+  .table-wrapper {
+    padding: 10px 2px;
+  }
+  table {
+    width: 98vw;
+    height: 30vh;
+    border-spacing: 8px;
+  }
+  td {
+    font-size: 5vw;
+    padding: 8px;
+    min-width: 80px;
+    min-height: 60px;
+  }
+}
