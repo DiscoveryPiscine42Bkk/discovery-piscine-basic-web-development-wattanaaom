@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Wattanapong</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Kanit', Arial, sans-serif;
+      background: linear-gradient(135deg, #ece9e6 0%, #ffb88c 100%);
+      min-height: 100vh;
+      transition: background 0.3s;
+    }
+    .navbar {
+      width: 100%;
+      background: #ff7043;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 8px #ff704355;
+    }
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      padding: 18px 28px;
+      font-size: 1.15rem;
+      font-weight: bold;
+      border-radius: 0 0 12px 12px;
+      transition: background 0.2s, color 0.2s;
+      display: block;
+    }
+    .navbar a:hover, .navbar a:focus {
+      background: #ffa270;
+      color: #ff7043;
+    }
+    .slide {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: rgba(240,240,240,0.92);
+      border-radius: 18px;
+      margin: 40px auto;
+      max-width: 1200px;
+      width: 100vw auto;
+      padding: 48px 24px;
+      scroll-margin-top: 80px;
+      box-shadow: 0 4px 24px rgba(255,112,67,0.10);
+      transition: background 0.3s, padding 0.3s;
+    }
+    .slide1 { background: rgba(236,233,230,0.92); }
+    .slide2 { background: rgba(255,224,178,0.92); }
+    .slide3 { background: rgba(255,236,230,0.92); }
+    .slide h2 {
+      margin-top: 0;
+      color: #1e100c;
+      font-size: 2.2rem;
+      margin-bottom: 18px;
+      word-break: break-word;
+      width: 100%;
+      transition: font-size 0.3s;
+      text-shadow: 1px 2px 8px #fff3;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+    .slide p {
+      font-size: 1.25rem;
+      color: #444;
+      text-align: center;
+      max-width: 90%;
+      word-break: break-word;
+      transition: font-size 0.3s;
+      text-shadow: 0 1px 4px #fff6;
+    }
+    /* Contact icons */
+    .contact-icons a img {
+      filter: brightness(0) saturate(100%) invert(61%) sepia(61%) saturate(749%) hue-rotate(330deg) brightness(99%) contrast(98%);
+      transition: filter 0.2s, transform 0.2s;
+    }
+    .contact-icons a:hover img {
+      filter: brightness(1.2) saturate(2) drop-shadow(0 0 8px #ff7043);
+      transform: scale(1.1);
+    }
+    /* Profile image */
+    .contact-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 2px 16px #ffb88c55, 0 1px 8px #ff704355;
+      border: 4px solid #ff7043;
+      margin-bottom: 12px;
+    }
+    @media (max-width: 900px) {
+      .slide {
+        max-width: 95vw;
+        padding: 32px 4vw;
+      }
+    }
+    @media (max-width: 700px) {
+      .navbar {
+        gap: 8px;
+      }
+      .navbar a {
+        padding: 12px 8px;
+        font-size: 1rem;
+      }
+      .slide {
+        padding: 20px 2vw;
+        margin: 24px 0;
+      }
+      .slide h2 {
+        font-size: 1.3rem;
+      }
+      .slide p {
+        font-size: 1rem;
+      }
+      .contact-img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+    @media (max-width: 400px) {
+      .slide {
+        padding: 10px 1vw;
+      }
+      .slide h2 {
+        font-size: 1.05rem;
+      }
+      .slide p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="http://127.0.0.1:5500/ruxh%20ject/pageject.html">Home</a>
+    <a href="#slide1">คณะ</a>
+    <a href="#slide2">สาขา</a>
+    <a href="#slide3">ช่องทางติดต่อ</a>
+  </nav>
+  <div class="slide slide1" id="slide1" style="padding-top:0; position:relative; overflow:hidden; background:rgba(255,255,255,0.75); border-radius:18px;">
+    <img src="https://siet.kmitl.ac.th/sites/siet/files/styles/responsive_16x9_1200w/public/2023-10/BOY_0425_0.jpg?itok=H9tdIVXl"
+         style="position:absolute; left:0; top:0; width:100%; height:100%; object-fit:cover; opacity:0.30; z-index:1; filter:blur(0.5px); pointer-events:none; border-radius:18px;">
+    <div style="position:relative; z-index:2;">
+        <img src="https://siet.kmitl.ac.th/sites/siet/files/2024-12/logo.png?fbclid=IwY2xjawK_NgxleHRuA2FlbQIxMABicmlkETFPMmxmQlFLdkVRQ2NwRkpRAR777qRUCOnV5lAos3PoLHN5ytAH5Gd0Eh1Hcb9-ds07NCXhMPikvrZu5fy-Jw_aem_aPXAlQloGbqv605-6cQmPA"
+             alt="โลโก้คณะ"
+             style="display:block; width: 50%; max-height: 150px; object-fit:cover; border-top-left-radius:18px; border-top-right-radius:18px; margin-bottom:18px; margin-left:auto; margin-right:auto;">
+        <h2 style="text-align:center;">
+            คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี<br>
+            สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
+        </h2>
+    </div>
+</div>
+ <div class="slide slide2" id="slide2" style="position:relative; overflow:hidden; background:rgba(255,255,255,0.75); display:flex; align-items:center; justify-content:center;">
+    <img src="https://admin.curriculum.kmitl.ac.th/api/media/file/karu.jpg"
+         style="position:absolute; left:0; top:0; width:100%; height:100%; object-fit:cover; opacity:0.30; z-index:1; filter:blur(0.5px); pointer-events:none; border-radius:18px;">
+    <div style="position:relative; z-index:2; width:100%; display:flex; flex-direction:row; align-items:center; justify-content:center;">
+        <div style="flex:1; padding-left:32px; max-width:600px; margin:0 auto;">
+            <h2 style="font-weight:bold; color:#ff7043; margin-bottom:18px; text-align:center;">สาขา</h2>
+            <div style="font-size:1.5rem; color:#222; font-weight:bold; line-height:2.1; margin:0 auto; text-align:left; max-width:500px;">
+                หลักสูตรครุศาสตร์อุตสาหกรรมบัณฑิต สาขาวิชาเทคโนโลยีคอมพิวเตอร์มุ่งผลิตครูคอมพิวเตอร์ที่มีสมรรถนะด้านวิชาชีพและเทคโนโลยีคอมพิวเตอร์สามารถถ่ายทอดความรู้และพัฒนาทักษะผู้เรียนสร้างนวัตกรรมเพื่อการเรียนรู้ พัฒนาชุมชนและสังคมอย่างยั่งยืนพร้อมดำรงชีวิตอย่างมีความสุข โดยยึดมั่นในจรรยาบรรณวิชาชีพสอดคล้องกับข้อกำหนดของหลักสูตรในสถานศึกษาทั้งระดับอาชีวศึกษาและการศึกษาขั้นพื้นฐาน
+            </div>
+        </div>
+    </div>
+</div>
+</style>
+ <div class="slide slide3" id="slide3" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background:rgba(255,236,230,0.92); text-align: center;">
+  <img src="https://scontent.fbkk6-1.fna.fbcdn.net/v/t39.30808-1/481773729_1130966328518987_1171271239264101298_n.jpg?stp=cp6_dst-jpg_s200x200_tt6&_nc_cat=110&ccb=1-7&_nc_sid=e99d92&_nc_ohc=VDXnLP71EP8Q7kNvwFYip4G&_nc_oc=Adn8AF_Tm2sNJ7fG3KqKWdWlvfLlT3Yaoy_7exRzoNFl1w04K8mKvZp1G14t1ZZTwlg&_nc_zt=24&_nc_ht=scontent.fbkk6-1.fna&_nc_gid=m0jlpJW531cFtKB5GQz3jA&oh=00_AfNxPjGCzbCI5Hmxl1mfaprx-oVyNyOyYCXdTJf0aq8toA&oe=68594633"
+       alt="Contact"
+       class="contact-img"
+       style="width:180px; height:180px; border-radius:50%; object-fit:cover; box-shadow:0 2px 16px #ffb88c55, 0 1px 8px #ff704355; border: 4px solid #ff7043; margin-bottom: 18px;">
+  <h2 style="color:#ff7043; margin-top:0; margin-bottom:18px; letter-spacing:2px;">ช่องทางติดต่อ</h2>
+  <div style="font-size:1.15rem; color:#444; line-height:2;">
+    <strong>FACEBOOK:</strong> <a href="https://www.facebook.com/aom.wattanapong.9" target="_blank" style="color:#3b5998; text-decoration:none;">Aom Wattanapong</a><br>
+    <strong>LINE:</strong> <a href="tel:0927605458" style="color:#43d854; text-decoration:none;">0927605458</a><br>
+    <strong>INSTAGRAM:</strong> <a href="https://www.instagram.com/w.wattanaom/" target="_blank" style="color:#e4405f; text-decoration:none;">w.wattanapong</a><br>
+    <strong>TEL:</strong> <a href="tel:0927605458" style="color:#ff7043; text-decoration:none;">092-760-5458</a>
+  </div>
+</div>
